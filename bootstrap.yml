@@ -1,0 +1,14 @@
+---
+- name: Bootstrap ansible user
+  hosts: all
+  become: yes
+  become_user: root
+
+  tasks:
+        - name: Copy ssh-keys for ansible user
+          ansible.posix.authorized_key:
+                  user: ansible
+                  state: present
+                  key: "{{ lookup('file', item) }}"
+          with_fileglob:
+                  - "config/ssh_keys/*.pub"
