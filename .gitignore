@@ -1,2 +1,5 @@
 group_vars/all
 hosts
+vars/secrets.yaml
+.vault-password
+config/ssh_keys/*
