@@ -2,3 +2,10 @@
 ansible_connection: ssh
 ansible_user: ansible
 ansible_ssh_pass: FAKE
+
+base_packages:
+  - vim
+  - nload
+  - htop
+  - pwgen
+

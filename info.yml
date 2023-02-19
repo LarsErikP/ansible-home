@@ -1,0 +1,18 @@
+---
+- name: Server info
+  hosts: all
+  become: yes
+  become_user: root
+
+  tasks:
+    - name: "Fetch uptime"
+      shell: uptime
+      register: uptime
+
+    - name: Display info
+      debug:
+        msg:
+          - "Release: {{ hostvars[inventory_hostname]['ansible_lsb']['description'] }}"
+          - "IPv4: {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+          - "IPv6: {{ hostvars[inventory_hostname]['ansible_default_ipv6']['address'] }}"
+          - "Uptime: {{ uptime.stdout_lines }}"
