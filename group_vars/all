@@ -1,0 +1,10 @@
+---
+ansible_connection: ssh
+ansible_user: ansible
+#ansible_ssh_pass: PUTT I VAULT
+
+base_packages:
+  - vim
+  - nload
+  - htop
+  - pwgen
