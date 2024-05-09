@@ -1,0 +1,9 @@
+---
+- name: Update PiHole
+  hosts: dns
+  become: true
+  become_user: root
+
+  tasks:
+    - name: Update PiHole
+      shell: pihole -up
