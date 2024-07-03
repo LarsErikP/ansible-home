@@ -5,5 +5,12 @@
   become_user: root
 
   tasks:
+    - name: Fetch PiHole Versions
+      shell: pihole -v
+      register: pihole_versions
+    - name: Print PiHole Versions
+      debug:
+        msg:
+          - "{{ pihole_versions.stdout_lines }}"
     - name: Update PiHole
       shell: pihole -up
